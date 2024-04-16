@@ -1,7 +1,10 @@
 package selenium;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.HasAuthentication;
+import org.openqa.selenium.UsernameAndPassword;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class BasicAuthTest extends BaseTest {
@@ -10,6 +13,11 @@ public class BasicAuthTest extends BaseTest {
             "Congratulations! You must have the proper credentials"));
 
     //todo: add basic auth
+    @BeforeMethod
+    public void basicAuth(){
+        HasAuthentication auth = (HasAuthentication) driver;
+        auth.register(() -> new UsernameAndPassword("admin", "admin"));
+    }
 
     @Test
     public void basicAuthTest() {
