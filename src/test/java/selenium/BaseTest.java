@@ -13,7 +13,7 @@ public class BaseTest {
     protected final String RELATIVE_RESOURCE_PATH = "src\\test\\resources\\";
 
 
-//    @BeforeMethod
+    @BeforeMethod
     public void setup() {
         driver = new ChromeDriver();
         driver.get(URL);
